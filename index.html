@@ -1,0 +1,120 @@
+# loja-do-carpinteiro 
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>josé carpinteiro</title>
+    <style>
+        body {
+            background-color: #1a1a40; /* Fundo azul escuro */
+            color: #ffffff; /* Texto branco */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #333366;
+            border-bottom: 3px solid #444488;
+        }
+
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .item {
+            margin: 20px;
+            padding: 15px;
+            background-color: #444488;
+            border-radius: 10px;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .item:hover {
+            background-color: #5555aa;
+        }
+
+        .details {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #333366;
+            border-radius: 10px;
+        }
+
+        .details.active {
+            display: block;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333366;
+            border-top: 3px solid #444488;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body> 
+    <header>
+        <h1>josé carpinteiro</h1>
+    </header>
+    <main>
+        <div class="item" onclick="showDetails('pa')">
+            <button onclick="alert('Testando a Pá!'); event.stopPropagation();">Testando os produtos</button>
+            <h2>Pá - R$20</h2>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/7f/Skovl.jpg" alt="Foto da Pá" style="width: 150px; height: auto; border-radius: 10px;">
+            <p>Clique para comprar</p>
+        </div>
+        <div class="item" onclick="showDetails('martelo')">
+            <button onclick="alert('Testando o Martelo!'); event.stopPropagation();">Testando os produtos</button>
+            <h2>Martelo - R$30</h2>
+            <img src="https://thumbs.dreamstime.com/b/martelo-sujo-isolado-75049700.jpg" alt="Foto do Martelo" style="width: 150px; height: auto; border-radius: 10px;">
+            <p>Clique para comprar</p>
+        </div>
+    
+        <div id="pa" class="details">
+            <h2>Detalhes da Pá</h2>
+            <p>Preço: R$20</p>
+            <p>Descrição: Pá de alta qualidade para carpinteiros.</p>
+            <p>pix do pai:140.250.699-62</p>
+            <button onclick="hideDetails()">Fechar</button>
+        </div>
+    
+        <div id="martelo" class="details">
+            <h2>Detalhes do Martelo</h2>
+            <p>Preço: R$30</p>
+            <p>Descrição: Martelo resistente para trabalhos pesados.</p>
+            <p>pix do pai:140.250.699-62</p>
+            <button onclick="hideDetails()">Fechar</button>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; site do josé brabo car<b>pintoeiro</b></p>
+    </footer>
+    <script>
+        function showDetails(itemId) {
+            // Esconde todos os detalhes
+            const details = document.querySelectorAll('.details');
+            details.forEach(detail => detail.classList.remove('active'));
+
+            // Mostra o detalhe selecionado
+            document.getElementById(itemId).classList.add('active');
+        }
+
+        function hideDetails() {
+            // Esconde todos os detalhes
+            const details = document.querySelectorAll('.details');
+            details.forEach(detail => detail.classList.remove('active'));
+        }
+    </script>
+</body>
+</html>
